@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px;
+  align-items: flex-start;
+  margin: 5px;
+  width: 80%;
+  cursor: grab;
+}
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.description {
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 160px;
+}
