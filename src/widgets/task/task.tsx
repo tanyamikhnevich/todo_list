@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./task.module.scss";
-import { BoardI, TaskI } from "../../pages";
+import { TasksTypes } from "entities/tasks";
+
+type BoardI = TasksTypes.TasksListI;
+
+type TaskI = TasksTypes.TaskI;
 
 interface Props {
-  title: string;
-  description: string;
-  index: number;
   dragOverHandler: (e: React.DragEvent<HTMLDivElement>) => void;
   dragLeaveHandler: (e: React.DragEvent<HTMLDivElement>) => void;
   dragStartHandler: (
@@ -24,9 +25,6 @@ interface Props {
 }
 
 export const Task = ({
-  title,
-  description,
-  index,
   dragOverHandler,
   dragStartHandler,
   dragLeaveHandler,
@@ -48,10 +46,10 @@ export const Task = ({
       <div className={styles.titleContainer}>
         <input type="checkbox" />
         <h2>
-          {index}. {title}
+          {item.id}. {item.title}
         </h2>
       </div>
-      <p className={styles.description}>{description}</p>
+      <p className={styles.description}>{item.description}</p>
     </div>
   );
 };

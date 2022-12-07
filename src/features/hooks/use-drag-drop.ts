@@ -1,7 +1,12 @@
+import { TasksTypes } from "entities/tasks";
 import React, { useState } from "react";
-import { BoardI, TaskI } from "../../pages";
 
-export function useDragDrop(setBoards: any, boards: any) {
+type BoardI = TasksTypes.TasksListI;
+
+type TaskI = TasksTypes.TaskI;
+
+export function useDragDrop(boards: BoardI[]) {
+  const [, setBoards] = useState(boards);
   const [currentBoard, setCurrentBoard] = useState<null | BoardI>(null);
   const [currentItem, setCurrentItem] = useState<null | TaskI>(null);
 
